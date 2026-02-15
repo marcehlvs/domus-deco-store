@@ -1,0 +1,58 @@
+﻿@model domus_deco_store.Models.Producto
+
+@{
+    ViewData["Title"] = "Nuevo Producto";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/producto.css" />
+}
+
+
+<div class="main-container">
+
+    <!-- HEADER -->
+    <header class="header-sticky d-flex align-items-center position-relative">
+        <a class="btn-back text-dark text-decoration-none position-absolute fs-4"
+           asp-action="Index">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+
+        </a>
+        <h1 class="h5 mb-0 fw-bold mx-auto">Nuevo Producto</h1>
+    </header>
+
+    <!-- FORM -->
+    <main class="px-3 py-2 d-flex justify-content-center">
+        <div class="w-100" style="max-width: 420px;">
+
+            <form asp-action="Create" class="producto-form">
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3"></div>
+
+                @Html.Partial("_ProductoForm", Model)
+
+                <!-- ACCIONES -->
+                <div class="footer-actions">
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Guardar
+                    </button>
+                    <a asp-action="Index"
+                       class="btn-cancel text-decoration-none">
+                        Cancelar
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </main>
+</div>
+
+@section Scripts {
+    <script src="~/js/producto-image-preview.js"
+            asp-append-version="true"></script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

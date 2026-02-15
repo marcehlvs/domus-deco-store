@@ -1,0 +1,116 @@
+﻿@model domus_deco_store.Models.Producto
+
+@{
+    ViewData["Title"] = "Detalles del Producto";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/producto-details.css" asp-append-version="true" />
+}
+
+<div class="product-header mb-3">
+    <div class="container-fluid d-flex align-items-center">
+        <a asp-action="Index"
+           class="text-decoration-none text-dark d-flex align-items-center me-3">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+        </a>
+        <h1 class="h5 mb-0 fw-bold">Detalles del Producto</h1>
+    </div>
+</div>
+
+<div class="container-fluid px-3">
+    <div class="card mb-4">
+
+        <!-- Imagen -->
+        <div class="img-container text-center">
+            <img src="@Model.ImagenUrl"
+                 alt="@Model.Nombre"
+                 class="img-fluid rounded product-image" /> 
+        </div>
+
+        <!-- Header info -->
+        <div class="card-body border-top">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                    <h2 class="h3 fw-bold mb-0">@Model.Nombre</h2>
+                    <p class="text-muted small mb-0">
+                        @Model.Marca.Nombre • @Model.Categoria.Nombre
+                    </p>
+                </div>
+
+                @if (Model.Activo)
+                {
+                    <span class="badge bg-success-subtle text-success badge-active">
+                        Activo
+                    </span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary-subtle text-secondary badge-active">
+                        Inactivo
+                    </span>
+                }
+            </div>
+        </div>
+
+        <!-- Datos -->
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+                <span class="label-text">Descripción</span>
+                <p class="mb-0 text-muted">@Model.Descripcion</p>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between">
+                <div>
+                    <span class="label-text">Marca</span>
+                    <span class="value-text">@Model.Marca.Nombre</span>
+                </div>
+                <div class="text-end">
+                    <span class="label-text">Categoría</span>
+                    <span class="value-text">@Model.Categoria.Nombre</span>
+                </div>
+            </li>
+
+            <li class="list-group-item bg-light-subtle d-flex justify-content-between">
+                <span class="label-text mb-0">Precio</span>
+                <span class="price-text">
+                    @Model.Precio.ToString("C")
+                </span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between">
+                <div>
+                    <span class="label-text">Stock</span>
+                    <span class="value-text">@Model.Cantidad</span>
+                </div>
+                <div class="text-end">
+                    <span class="label-text">Medida</span>
+                    <span class="value-text">@Model.Medida</span>
+                </div>
+            </li>
+
+        </ul>
+        <div class="card-footer bg-white border-0">
+            <div class="details-actions">
+                <a asp-action="Edit" asp-route-id="@Model.Id"
+                   class="btn btn-warning btn-sm">
+                    Editar
+                </a>
+
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary btn-sm">
+                    Volver
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+</div>
+
+<div style="height: 100px;"></div>
+
+

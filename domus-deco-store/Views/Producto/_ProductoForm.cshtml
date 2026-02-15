@@ -1,0 +1,131 @@
+﻿@model domus_deco_store.Models.Producto
+
+<div asp-validation-summary="ModelOnly"
+     class="text-danger mb-3"></div>
+
+<!-- Nombre -->
+<div class="form-floating mb-3">
+    <input asp-for="Nombre"
+           class="form-control"
+           placeholder=" " />
+    <label>Nombre</label>
+    <span asp-validation-for="Nombre"
+          class="text-danger small"></span>
+</div>
+
+<!-- Descripción -->
+<div class="form-floating mb-3">
+    <textarea asp-for="Descripcion"
+              class="form-control"
+              placeholder=" "
+              style="height: 100px"></textarea>
+    <label>Descripción</label>
+    <span asp-validation-for="Descripcion"
+          class="text-danger small"></span>
+</div>
+
+<!-- Categoría / Marca -->
+<div class="row g-2 mb-3">
+    <div class="col-6">
+        <div class="form-floating">
+            <select asp-for="CategoriaId"
+                    asp-items="ViewBag.CategoriaId"
+                    class="form-select">
+                <option value="">Seleccionar...</option>
+            </select>
+            <label>Categoría</label>
+        </div>
+        <span asp-validation-for="CategoriaId"
+              class="text-danger small"></span>
+    </div>
+
+    <div class="col-6">
+        <div class="form-floating">
+            <select asp-for="MarcaId"
+                    asp-items="ViewBag.MarcaId"
+                    class="form-select">
+                <option value="">Seleccionar...</option>
+            </select>
+            <label>Marca</label>
+        </div>
+        <span asp-validation-for="MarcaId"
+              class="text-danger small"></span>
+    </div>
+</div>
+
+<!-- Precio / Cantidad -->
+<div class="row g-2 mb-3">
+    <div class="col-6">
+        <div class="form-floating">
+            <input asp-for="Precio"
+                   type="number"
+                   step="0.01"
+                   class="form-control"
+                   placeholder=" " />
+            <label>Precio</label>
+        </div>
+        <span asp-validation-for="Precio"
+              class="text-danger small"></span>
+    </div>
+
+    <div class="col-6">
+        <div class="form-floating">
+            <input asp-for="Cantidad"
+                   type="number"
+                   class="form-control"
+                   placeholder=" " />
+            <label>Cantidad</label>
+        </div>
+        <span asp-validation-for="Cantidad"
+              class="text-danger small"></span>
+    </div>
+</div>
+
+<!-- Imagen -->
+<div class="form-floating mb-3">
+    <input asp-for="ImagenUrl"
+           id="ImagenUrl"
+           class="form-control"
+           placeholder=" " />
+    <label>URL de Imagen</label>
+    <span asp-validation-for="ImagenUrl"
+          class="text-danger small"></span>
+</div>
+
+<!-- Preview imagen -->
+<div class="image-preview">
+    <img id="previewImg" style="display:none;" />
+    <span id="previewIcon"
+          class="material-symbols-outlined text-muted mb-1">
+        image
+    </span>
+    <small id="previewText"
+           class="text-muted">
+        Vista previa del producto
+    </small>
+</div>
+
+<!-- Medida -->
+<div class="form-floating mb-3">
+    <input asp-for="Medida"
+           class="form-control"
+           placeholder=" " />
+    <label>Medida</label>
+    <span asp-validation-for="Medida"
+          class="text-danger small"></span>
+</div>
+
+<!-- Activo -->
+<div class="active-switch mb-4">
+    <div>
+        <div class="fw-bold">Producto Activo</div>
+        <small class="text-muted">
+            Visible en la tienda
+        </small>
+    </div>
+    <div class="form-check form-switch fs-4">
+        <input asp-for="Activo"
+               class="form-check-input"
+               role="switch" />
+    </div>
+</div>

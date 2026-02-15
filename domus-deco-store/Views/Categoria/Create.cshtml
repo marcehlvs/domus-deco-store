@@ -1,0 +1,44 @@
+﻿@model domus_deco_store.Models.Categoria
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin-crud.css" />
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+
+            <div class="card shadow-sm card-form">
+                <div class="card-body p-4">
+
+                    <h1 class="h4 mb-4">Nueva Categoría</h1>
+
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label"></label>
+                            <input asp-for="Nombre"
+                                   class="form-control"
+                                   placeholder="Ej: Muebles de Jardín" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-3 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Guardar Categoría
+                            </button>
+
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary btn-lg border-0">
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

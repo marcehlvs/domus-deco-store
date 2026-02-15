@@ -1,0 +1,61 @@
+﻿@model domus_deco_store.Models.Categoria
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin-crud.css" />
+}
+
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-5">
+
+            <div class="card shadow-sm card-form">
+
+                <div class="card-body p-4">
+
+                    <div class="text-center mb-4">
+                        <h1 class="h4 fw-bold mb-1">Editar Categoría</h1>
+                        <p class="text-muted small mb-0">
+                            Modifica el nombre de la categoría
+                        </p>
+                    </div>
+
+                    <form asp-action="Edit">
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="mb-4">
+                            <label asp-for="Nombre" class="form-label fw-semibold"></label>
+                            <input asp-for="Nombre"
+                                   class="form-control form-control-lg"
+                                   placeholder="Ej: Muebles de Salón" />
+                            <span asp-validation-for="Nombre"
+                                  class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid gap-3">
+                            <button type="submit"
+                                    class="btn btn-primary btn-lg shadow-sm">
+                                Guardar Cambios
+                            </button>
+
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary btn-lg">
+                                Cancelar
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

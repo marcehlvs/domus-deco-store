@@ -1,0 +1,115 @@
+﻿@model IEnumerable<domus_deco_store.Models.Producto>
+@section Styles {
+    <link rel="stylesheet" href="~/css/producto-index.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+}
+
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">Lista de productos</h1>
+
+        <a asp-action="Create"
+           class="btn btn-primary d-flex align-items-center">
+            <span class="material-symbols-outlined me-1"></span>
+            Nuevo Producto
+        </a>
+    </div>
+
+    <div class="table-container shadow-sm">
+        <div class="table-responsive">
+            <table id="productosTable" class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Imagen</th>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Categoria</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>¿Producto Activo?</th>
+                        <th class="text-end pe-4">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="ps-4">
+                                <img src="@item.ImagenUrl"
+                                     class="img-thumbnail img-thumbnail-custom"
+                                     alt="@item.Nombre" />
+                            </td>
+
+                            <td class="fw-bold">@item.Nombre</td>
+                            <td>@item.Marca.Nombre</td>
+                            <td>@item.Categoria.Nombre</td>
+                            <td class="fw-semibold text-primary">
+                                $@item.Precio.ToString("0.00")
+                            </td>
+                            <td>@item.Cantidad</td>
+                            <td>
+                                @if (item.Activo)
+                                {
+                                    <span class="badge bg-success status-badge">Activo</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary status-badge">Inactivo</span>
+                                }
+                            </td>
+                            <td class="text-end pe-4">
+                                <div class="btn-group">
+                                    <a asp-action="Edit"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-outline-primary btn-action d-flex align-items-center gap-1">
+                                        <span class="material-symbols-outlined">edit</span>
+                                        Editar
+                                    </a>
+                                    <a asp-action="Details"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-outline-primary btn-action d-flex align-items-center gap-1">
+                                        <span class="material-symbols-outlined">info</span>
+                                        Info
+                                    </a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-outline-primary btn-action d-flex align-items-center gap-1">
+                                        <span class="material-symbols-outlined">delete</span>
+                                        Borrar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-3fp5QmYkXb6vJv3w2qfQ6sZq1Y6/7Gk3b8f2+7mZ4i8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#productosTable').DataTable({
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
+                },
+                // Opciones de longitud de página: 5, 10, 15, 25, 50 y Todos
+                lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, 'Todos']],
+                // Valor por defecto
+                pageLength: 5,
+                // Ajustes opcionales adicionales
+                responsive: true
+            });
+        });
+    </script>
+}

@@ -1,0 +1,101 @@
+﻿:root {
+    --bs-body-font-family: 'Inter', sans-serif;
+    --bs-primary: #137fec;
+    --bs-primary-rgb: 19, 127, 236;
+}
+
+/* ===== Base ===== */
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding-bottom: 2rem;
+    min-height: max(884px, 100dvh);
+}
+
+/* ===== Cards ===== */
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
+}
+
+/* ===== Header ===== */
+.product-header {
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+/* ===== Imagen ===== */
+.img-container {
+    background-color: #fff;
+    padding: 1rem;
+}
+/* ===== Imagen del producto ===== */
+.product-image {
+    max-width: 320px; /* tamaño máximo */
+    max-height: 360px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* ===== Lista ===== */
+.list-group-item {
+    border-left: none;
+    border-right: none;
+    padding: 1rem;
+}
+
+/* ===== Textos ===== */
+.label-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.025em;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.value-text {
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.price-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+
+/* ===== Estado ===== */
+.badge-active {
+    padding: 0.5em 1em;
+    border-radius: 50rem;
+    font-weight: 600;
+}
+
+/* ===== Acciones dentro de la card ===== */
+.details-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+
+
+.card-footer .details-actions .btn {
+    flex: 0 0 30%;
+    max-width: 250px;
+    text-align: center;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border-radius: 0.7rem;
+}

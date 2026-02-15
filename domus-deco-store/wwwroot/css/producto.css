@@ -1,0 +1,125 @@
+﻿:root {
+    --bs-body-font-family: 'Inter', sans-serif;
+    --bs-primary: #137fec;
+    --bs-primary-rgb: 19, 127, 236;
+}
+
+/* =======================================================
+   BASE GENERAL
+======================================================= */
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding-bottom: 2rem;
+    min-height: max(884px, 100dvh);
+}
+
+/* =======================================================
+   CARD PRINCIPAL
+======================================================= */
+
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
+}
+
+/* =======================================================
+   HEADER SUPERIOR (sticky)
+======================================================= */
+
+.product-header {
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+/* =======================================================
+   IMAGEN
+======================================================= */
+
+.img-container {
+    background-color: #fff;
+    padding: 1rem;
+}
+
+/* =======================================================
+   LISTA DE DATOS
+======================================================= */
+
+.list-group-item {
+    border-left: none;
+    border-right: none;
+    padding: 1rem;
+}
+
+/* =======================================================
+   TEXTOS
+======================================================= */
+
+.label-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.025em;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.value-text {
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.price-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+
+/* =======================================================
+   BADGE ESTADO
+======================================================= */
+
+.badge-active {
+    padding: 0.5em 1em;
+    border-radius: 50rem;
+    font-weight: 600;
+}
+
+/* =======================================================
+   ACCIONES DENTRO DE LA CARD
+   (ANTES: sticky-bottom-actions → ELIMINADO)
+   Ahora los botones viven dentro del card-footer
+   y ocupan aproximadamente 1/3 del ancho.
+======================================================= */
+
+.details-actions {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    gap: 1rem;
+    padding: 1.25rem 0;
+}
+
+    .details-actions .btn {
+        width: 33%; /* ocupa 1/3 del ancho */
+        max-width: 220px; /* evita que crezca demasiado en desktop */
+        font-size: 0.9rem;
+        border-radius: 0.7rem;
+        font-weight: 600;
+        padding: 0.55rem 1rem;
+    }
+
+/* Responsive: en móvil un poco más ancho */
+
+@media (max-width: 576px) {
+    .details-actions .btn {
+        width: 45%;
+    }
+}
